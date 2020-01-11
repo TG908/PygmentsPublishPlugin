@@ -4,15 +4,19 @@ A work in progress implemntation of a pygments plugin for use with [Publish](htt
 
 # Install
 
+Install pygments on your machine.
 ```
 pip3 install pygments
 ```
 
+In your Package.swift add:
 ```swift
 .package(url: "https://github.com/TG908/PygmentsPublishPlugin.git", from: "0.0.4")
 ```
 
 # Setup
+
+To load the plugin simply add these lines:
 
 ```swift
 
