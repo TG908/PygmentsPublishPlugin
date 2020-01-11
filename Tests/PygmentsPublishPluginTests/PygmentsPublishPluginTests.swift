@@ -15,6 +15,10 @@ final class PygmentsPublishPluginTests: XCTestCase {
         ```no-highlight
         not.highlighted()
         ```
+
+        ```
+        not.highlighted()
+        ```
         """)
 
         print(html)

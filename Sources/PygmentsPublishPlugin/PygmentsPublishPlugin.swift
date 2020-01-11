@@ -34,9 +34,11 @@ public extension Modifier {
                 .dropFirst()
                 .dropLast("\n```".count)
             
-            
-            let highlighted = try! shellOut(to: "echo \(String(markdown)) | /usr/local/bin/pygmentize -s -l \(String(language)) -f html")
-            return "<pre><code>" + highlighted + "\n</code></pre>"
+            if let highlighted = try? shellOut(to: "echo \(String(markdown)) | /usr/local/bin/pygmentize -s -l \(String(language)) -f html") {
+                assertionFailure("Error running pygments")
+                return "<pre><code>" + highlighted + "\n</code></pre>"
+            }
+            return "<pre><code>" + String(markdown) + "\n</code></pre>"
         }
     }
 }
