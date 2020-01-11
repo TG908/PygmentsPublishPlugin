@@ -21,7 +21,7 @@ public extension Modifier {
         return Modifier(target: .codeBlocks) { html, markdown in
             
             let begin = markdown.components(separatedBy: .newlines).first ?? "```"
-            let language = begin.dropFirst("```".count).dropLast()
+            let language = begin.dropFirst("```".count)
             
             var markdown = markdown.dropFirst(begin.count + language.count)
 
@@ -34,12 +34,10 @@ public extension Modifier {
                 .dropFirst()
                 .dropLast("\n```".count)
             
-            if let highlighted = try? shellOut(to: "echo \(String(markdown)) | /usr/local/bin/pygmentize -s -l \(String(language)) -f html") {
-                assertionFailure("Error running pygments")
+            if let highlighted = try? shellOut(to: "echo \"\(String(markdown))\" | /usr/local/bin/pygmentize -s -l \(String(language)) -f html") {
                 return "<pre><code>" + highlighted + "\n</code></pre>"
             }
             return "<pre><code>" + String(markdown) + "\n</code></pre>"
         }
     }
 }
-
