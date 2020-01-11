@@ -34,7 +34,7 @@ public extension Modifier {
                 .dropFirst()
                 .dropLast("\n```".count)
             
-            if let highlighted = try? shellOut(to: "echo \"\(String(markdown))\" | /usr/local/bin/pygmentize -s -l \(String(language)) -f html") {
+            if let highlighted = try? shellOut(to: "echo \"\(String(markdown))\" | /usr/local/bin/pygmentize -s -l \(String(language)) -f html -O nowrap") {
                 return "<pre><code>" + highlighted + "\n</code></pre>"
             }
             return "<pre><code>" + String(markdown) + "\n</code></pre>"
