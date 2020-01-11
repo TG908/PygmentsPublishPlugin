@@ -4,4 +4,4 @@ A work in progress implemntation of a pygments plugin for use with Publish. Make
 
 `pip3 install pygments`
 
-You'll also need to add one of these CSS Files: https://github.com/richleland/pygments-css/blob/master/default.css
+You'll also need to add one of these CSS Files: https://github.com/richleland/pygments-css
