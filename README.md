@@ -4,7 +4,9 @@ A work in progress implemntation of a pygments plugin for use with [Publish](htt
 
 # Install
 
-`pip3 install pygments`
+```
+pip3 install pygments
+```
 
 ```swift
 .package(url: "https://github.com/TG908/PygmentsPublishPlugin.git", from: "0.0.4")
