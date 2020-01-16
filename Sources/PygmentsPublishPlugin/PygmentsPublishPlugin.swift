@@ -4,7 +4,7 @@ import Ink
 import ShellOut
 
 public extension Plugin {
-    static func pygmentize(withClassPrefix classPrefix: String) -> Self {
+    static func pygmentize() -> Self {
         Plugin(name: "Pygments") { context in
             context.markdownParser.addModifier(
                 .pygmentizeCodeBlocks()
