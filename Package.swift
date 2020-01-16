@@ -14,7 +14,6 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         .package(url: "https://github.com/johnsundell/publish.git", from: "0.1.0"),
-        .package(url: "https://github.com/johnsundell/splash.git", from: "0.9.0"),
         .package(url: "https://github.com/JohnSundell/ShellOut.git", from: "2.0.0")
     ],
     targets: [
@@ -22,7 +21,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "PygmentsPublishPlugin",
-            dependencies: ["Publish", "Splash", "ShellOut"]),
+            dependencies: ["Publish", "ShellOut"]),
         .testTarget(
             name: "PygmentsPublishPluginTests",
             dependencies: ["PygmentsPublishPlugin"]),

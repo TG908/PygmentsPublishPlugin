@@ -1,6 +1,5 @@
 
 import Publish
-import Splash
 import Ink
 import ShellOut
 
@@ -8,16 +7,14 @@ public extension Plugin {
     static func pygmentize(withClassPrefix classPrefix: String) -> Self {
         Plugin(name: "Pygments") { context in
             context.markdownParser.addModifier(
-                .pygmentizeCodeBlocks(withFormat: HTMLOutputFormat(
-                    classPrefix: classPrefix
-                ))
+                .pygmentizeCodeBlocks()
             )
         }
     }
 }
 
 public extension Modifier {
-    static func pygmentizeCodeBlocks(withFormat format: HTMLOutputFormat = .init()) -> Self {
+    static func pygmentizeCodeBlocks() -> Self {
         return Modifier(target: .codeBlocks) { html, markdown in
             
             let begin = markdown.components(separatedBy: .newlines).first ?? "```"
