@@ -20,7 +20,7 @@ public extension Modifier {
             let begin = markdown.components(separatedBy: .newlines).first ?? "```"
             let language = begin.dropFirst("```".count)
             
-            var markdown = markdown.dropFirst(begin.count + language.count)
+            var markdown = markdown.dropFirst(begin.count)
 
             guard language != "no-highlight" else {
                 return html

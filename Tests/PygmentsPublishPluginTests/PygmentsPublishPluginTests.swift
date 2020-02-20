@@ -21,7 +21,10 @@ final class PygmentsPublishPluginTests: XCTestCase {
         ```
         """)
 
-        print(html)
+        let expectedHtml = "<p>Some text</p><pre><code><span class=\"kd\">let</span> <span class=\"nv\">int</span> <span class=\"p\">=</span> <span class=\"mi\">7</span>\n</code></pre><p>More text</p><pre><code class=\"language-no-highlight\">not.highlighted()\n</code></pre><pre><code>not.highlighted()\n</code></pre>"
+
+        XCTAssertEqual(expectedHtml, html)
+
     }
 
     static var allTests = [
