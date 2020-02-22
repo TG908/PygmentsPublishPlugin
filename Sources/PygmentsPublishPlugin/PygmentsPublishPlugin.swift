@@ -30,8 +30,11 @@ public extension Modifier {
                 .drop(while: { !$0.isNewline })
                 .dropFirst()
                 .dropLast("\n```".count)
-            
-            if let highlighted = try? shellOut(to: "echo \"\(String(markdown))\" | /usr/local/bin/pygmentize -s -l \(String(language)) -f html -O nowrap") {
+
+            let markdownString = String(markdown).replacingOccurrences(of: "\"", with: "\\\"")
+            let cmd = #"echo "\#(markdownString)" | /usr/local/bin/pygmentize -s -l \#(String(language)) -f html -O nowrap"#
+
+            if let highlighted = try? shellOut(to: cmd) {
                 return "<pre><code>" + highlighted + "\n</code></pre>"
             }
             return "<pre><code>" + String(markdown) + "\n</code></pre>"
