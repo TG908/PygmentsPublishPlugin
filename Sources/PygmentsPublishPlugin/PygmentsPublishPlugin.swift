@@ -33,7 +33,7 @@ public extension Modifier {
 
             let markdownString = String(markdown)
                                               .replacingOccurrences(of: "\"", with: "\\\"")
-                                              .replacingOccurrences(of: "$", with: "\$")
+                                              .replacingOccurrences(of: "$", with: "\\$")
             let cmd = #"echo "\#(markdownString)" | /usr/local/bin/pygmentize -s -l \#(String(language)) -f html -O nowrap"#
 
             if let highlighted = try? shellOut(to: cmd) {
