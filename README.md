@@ -11,7 +11,7 @@ pip3 install pygments
 
 In your Package.swift add:
 ```swift
-.package(url: "https://github.com/TG908/PygmentsPublishPlugin.git", from: "0.0.4")
+.package(url: "https://github.com/tgymnich/PygmentsPublishPlugin.git", from: "0.0.4")
 ```
 
 # Setup
